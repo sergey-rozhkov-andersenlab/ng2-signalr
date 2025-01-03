@@ -4,13 +4,11 @@
 An angular typescript library that allows you to connect to Asp.Net SignalR
 
 This is a fork of (https://https://github.com/HNeukermans/ng2-signalR) that appears no longer maintained.
-This version is for Angular 18+. It no longer works with Angular versions before 18 due to breaking changes that are in some of the Angular dependencies.
+This version is for Angular 12+.
 
 ## Version history
 - version 12.0.1 - First 12+ version.
 - version 12.0.2 - Fixed a problem where change detection was broken due to incorrect NgZone initialisation.
-- version 13.0.0 - For Angular 13
-- version 18.0.1 - For Angular 18
 
 ## Features:
  1. 100% typescript
