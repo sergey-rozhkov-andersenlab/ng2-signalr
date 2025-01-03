@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule, ModuleWithProviders, NgZone, InjectionToken } from '@angular/core';
 import { SignalR } from '../services/signalr';
 import { SignalRConfiguration } from '../services/signalr.configuration';
@@ -29,10 +30,13 @@ function getJquery(): any {
 }
 
 @NgModule({
+    imports: [
+        CommonModule,
+    ],
     providers: [{
         provide: SignalR,
-        useValue: SignalR
-    }]
+        useValue: SignalR,
+    }],
 })
 export class SignalRModule {
     public static forRoot(getSignalRConfiguration: () => void): ModuleWithProviders<SignalRModule> {
@@ -41,16 +45,17 @@ export class SignalRModule {
             providers: [
                 {
                     provide: SIGNALR_CONFIGURATION,
-                    useFactory: getSignalRConfiguration
+                    useFactory: getSignalRConfiguration,
                 },
                 {
                     deps: [SIGNALR_CONFIGURATION, NgZone],
                     provide: SignalR,
-                    useFactory: (createSignalr)
-                }
+                    useFactory: (createSignalr),
+                },
             ],
         };
     }
+
     public static forChild(): ModuleWithProviders<SignalRModule> {
         throw new Error('forChild method not implemented');
     }

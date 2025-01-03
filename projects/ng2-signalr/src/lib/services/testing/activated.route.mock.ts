@@ -10,7 +10,7 @@ export class ActivatedRouteMock implements ActivatedRoute {
     public fragment: Observable<string>;
     public data: Observable<Data>;
     public outlet: string;
-    public component: Type<any> | string;
+    public component: Type<any> | null;
     public routeConfig: Route;
     public root: ActivatedRoute;
     public parent: ActivatedRoute;
@@ -19,6 +19,8 @@ export class ActivatedRouteMock implements ActivatedRoute {
     public pathFromRoot: ActivatedRoute[];
     public paramMap: Observable<any>;
     public queryParamMap: Observable<any>;
+
+    readonly title: Observable<string | undefined>;
 
     constructor() {
         this.snapshot = new ActivatedRouteSnapshot();
